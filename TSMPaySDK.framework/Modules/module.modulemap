@@ -1,0 +1,6 @@
+framework module TSMPaySDK {
+  umbrella header "TSMPaySDK.h"
+
+  export *
+  module * { export * }
+}
