@@ -36,6 +36,10 @@
 		<data>
 		v8pstv1HbmoW3gdlKZzSqn31WHY=
 		</data>
+		<key>Headers/HYAlipayManager.h</key>
+		<data>
+		w7hLwTzSoU6gokj4+Jk0i+Crl/U=
+		</data>
 		<key>Headers/TSMPaySDK.h</key>
 		<data>
 		ImrAWSmUegnMJxJTRwSLyGxoM+M=
@@ -137,6 +141,17 @@
 			<key>hash2</key>
 			<data>
 			dE2ndHqk8MuNrgTt2yHONxfP38nq2HUgB4t2jKRl8SI=
+			</data>
+		</dict>
+		<key>Headers/HYAlipayManager.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			w7hLwTzSoU6gokj4+Jk0i+Crl/U=
+			</data>
+			<key>hash2</key>
+			<data>
+			U6rfn0rEFEVpav5DmnbF4dGSAN+r5MyAkFDYa2WZQCc=
 			</data>
 		</dict>
 		<key>Headers/TSMPaySDK.h</key>
