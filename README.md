@@ -26,12 +26,14 @@
     -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
         
         if ([url.host isEqualToString:@"safepay"]) {
+            //必须调用（sdk会返回支付状态）
             [HYAlipayManager.shareManager processOrderWithPaymentResult:url];
         }
         return YES;
     }
     -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
         if ([url.host isEqualToString:@"safepay"]) {
+            //必须调用（sdk会返回支付状态）
             [HYAlipayManager.shareManager processOrderWithPaymentResult:url];
         }
         return YES;
@@ -48,12 +50,14 @@
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         if let host = url.host,host == "safepay" {
+            //必须调用（sdk会返回支付状态）
             HYAlipayManager.share().processOrder(withPaymentResult: url)
         }
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if let host = url.host,host == "safepay" {
+            //必须调用（sdk会返回支付状态）
             HYAlipayManager.share().processOrder(withPaymentResult: url)
         }
         return true
@@ -67,12 +71,11 @@
     /// @param subject 订单标题
     /// @param notifyUrl 接入商后台结果通知地址
     /// @param appScheme 应用注册scheme,在Info.plist定义URL types
-    /// @param completionHandler 支付后回调
+    /// @param completionHandler 支付后回调（resultStatus=9000时支付成功，其他失败并返回错误提示）
     - (void)startAliPayByUserId:(NSString *)userId outTradeNo:(NSString *)outTradeNo tradeAmount:(CGFloat)tradeAmount subject:(NSString *)subject notifyUrl:(NSString *)notifyUrl appScheme:(NSString *)appScheme completionHandler:(void(^)(id result))completionHandler;
     
     3.查询支付状态
     /// 支付状态查询(SDK只能查询一天以内产生的订单)
-    /// @param tradeNo TSM平台订单号
     /// @param outTradeNo 业务订单号(接入商系统)
     /// @param callBack 支付状态
     /// OPEN:初始状态(创建时状态，待支付)
@@ -80,4 +83,5 @@
     /// SUCCESS:成功
     /// CLOSED:已关闭
     /// INVALID:无效订单(超时或取消等其他)
-    - (void)orderStatus:(NSString *)tradeNo outTradeNo:(NSString *)outTradeNo callBack:(void(^)(NSString *status))callBack;
+    /// 为空则请求失败
+    - (void)orderStatusByoutTradeNo:(NSString *)outTradeNo callBack:(void(^)(NSString *status))callBack;
