@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shareManager;
 
 /// SDK初始化
-+ (void)registerApp:(NSString *)appKey secretKey:(NSString *)secretKey;
++ (void)registerApp:(nonnull NSString *)appKey secretKey:(nonnull NSString *)secretKey;
 
 /// 支付宝支付方法
 /// @param userId 用户ID（暂时直传）
@@ -29,7 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param notifyUrl 接入商后台结果通知地址
 /// @param appScheme 应用注册scheme,在Info.plist定义URL types
 /// @param completionHandler 支付后回调（resultStatus=9000时支付成功，其他失败并返回错误提示）
-- (void)startAliPayByUserId:(NSString *)userId outTradeNo:(NSString *)outTradeNo tradeAmount:(CGFloat)tradeAmount subject:(NSString *)subject notifyUrl:(NSString *)notifyUrl appScheme:(NSString *)appScheme completionHandler:(void(^)(id result))completionHandler;
+- (void)startAliPayByUserId:(nullable NSString *)userId
+                 outTradeNo:(nonnull NSString *)outTradeNo
+                tradeAmount:(CGFloat)tradeAmount
+                    subject:(nonnull NSString *)subject
+                  notifyUrl:(nonnull NSString *)notifyUrl
+                  appScheme:(nonnull NSString *)appScheme
+          completionHandler:(nonnull void(^)(id result))completionHandler;
 
 /// 支付状态查询(SDK只能查询一天以内产生的订单)
 /// @param outTradeNo 业务订单号(接入商系统)
@@ -40,10 +46,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// CLOSED:已关闭
 /// INVALID:无效订单(超时或取消等其他)
 /// 返回空则请求失败
-- (void)orderStatusByoutTradeNo:(NSString *)outTradeNo callBack:(void(^)(NSString *status))callBack;
+- (void)orderStatusByoutTradeNo:(nonnull NSString *)outTradeNo callBack:(nonnull void(^)(NSString *status))callBack;
 
 /// 支付跳转支付宝钱包进行支付，处理支付结果
--(void)processOrderWithPaymentResult:(NSURL *)url;
+-(void)processOrderWithPaymentResult:(nonnull NSURL *)url;
 
 @end
 
