@@ -10,7 +10,7 @@
 
 #第 3 步：使用 CocoaPods 安装 SDK
 
-    pod 'TSMPaySDK'
+    pod 'TSMPaySDK','1.0.3'
 
 #第 4 步：开始接入
 
