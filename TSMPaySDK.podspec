@@ -10,6 +10,6 @@ spec.platform     = :ios, '8.0'
 spec.vendored_frameworks = 'TSMPaySDK.framework'
 spec.frameworks   = 'UIKit','AVFoundation','Foundation'
 
-spec.dependency 'AlipaySDK-iOS','~> 15.6.8'
-spec.dependency 'AFNetworking','~> 4.0.0'
+spec.dependency 'AlipaySDK-iOS'
+spec.dependency 'AFNetworking'
 end
