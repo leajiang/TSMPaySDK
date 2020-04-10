@@ -11,6 +11,7 @@
 #第 3 步：使用 CocoaPods 安装 SDK
 
     pod 'TSMPaySDK','1.0.3'
+    （注：1.0.3为测试服务器）
 
 #第 4 步：开始接入
 
@@ -67,7 +68,7 @@
     /// 支付宝支付方法
     /// @param userId 用户ID（暂时直传）
     /// @param outTradeNo 业务订单号（业务请求方系统内单号）
-    /// @param tradeAmount 交易金额
+    /// @param tradeAmount 交易金额（单位：元）
     /// @param subject 订单标题
     /// @param notifyUrl 接入商后台结果通知地址
     /// @param appScheme 应用注册scheme,在Info.plist定义URL types
