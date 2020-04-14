@@ -11,8 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 支付宝开放平台文档
-/// https://opendocs.alipay.com/open/204/105295
+/// 当前版本号1.0.3
 
 @interface HYAlipayManager : NSObject
 
